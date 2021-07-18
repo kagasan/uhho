@@ -11,9 +11,6 @@ const firebaseConfig = {
 const UHHOLENGTH = 16;
 
 $(()=>{
-    
-    console.log(location.pathname);
-
     firebase.initializeApp(firebaseConfig);
     const fdb = firebase.firestore();
 
@@ -50,11 +47,9 @@ $(()=>{
             location.href = 'https://kagasan.github.io/uhho/' + newDocId;
         })
         .catch((error) => {
-            
+            console.log(error);
         });
     });
-
-
 
 });
 
