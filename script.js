@@ -25,6 +25,7 @@ $(()=>{
             $(this).height($(this).height() + 1)
         }
     });
+    $('#text2').text('').change();
 
     if (docId.length) {
         fdb.collection('documents').doc(docId).get()
