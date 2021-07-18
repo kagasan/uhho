@@ -10,10 +10,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
 
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/4043559c10.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -24,7 +20,17 @@
     <script src = "script.js"></script>
 </head>
 <body>
-    <div id = "app"></div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="https://kagasan.github.io/uhho/" class="navbar-brand">uhho</a>
+    </nav>
+    <div class="p-3 mb-2">
+        <h3>🦍 <small class="text-muted">uhho text</small> 🦍</h3>
+        <textarea readonly id="text1" class="form-control auto-resize"></textarea>
+        <h3>🍌 <small class="text-muted">creatre new uhho text</small> 🍌</h3>
+        <textarea id="text2" class="form-control auto-resize"></textarea>
+        <button type="button" id="uhho" class="btn btn-primary">uhho</button>
+        <span>こんなサービスに大切な情報を預けてはいけないよ！</span>
+    </div>
 </body>
 
 </html>
