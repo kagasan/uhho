@@ -9,13 +9,13 @@ const firebaseConfig = {
 };
 
 const UHHOLENGTH = 16;
+const DEFAULTID = 'how-to-use';
 
 $(()=>{
     firebase.initializeApp(firebaseConfig);
     const fdb = firebase.firestore();
 
-    const docId = (location.pathname + '///').split('/')[2].length == UHHOLENGTH ? (location.pathname + '///').split('/')[2] : 'how-to-use';
-
+    const docId = getDocId();
 
     $('textarea.auto-resize')
     .on('change keyup keydown paste cut', function(){
@@ -52,6 +52,22 @@ $(()=>{
     });
 
 });
+
+function getQuerry(key, none){
+    const url = window.location.search;
+    const hash  = url.slice(1).split('&');    
+    for (let i = 0; i < hash.length; i++) {
+        const sp = hash[i].split('='); 
+        if (sp[0] == key)return sp[1];
+    }
+    return none;
+}
+
+function getDocId() {
+    const id1 = (location.pathname + '///').split('/')[2];
+    if (id1.length == UHHOLENGTH) return id1;
+    return getQuerry('id', DEFAULTID);
+}
 
 function createDocId(){
     const arr = 'uho-'.split('');
