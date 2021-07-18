@@ -16,7 +16,6 @@ $(()=>{
     const fdb = firebase.firestore();
 
     const docId = getDocId();
-
     $('textarea.auto-resize')
     .on('change keyup keydown paste cut', function(){
         if ($(this).outerHeight() > this.scrollHeight){
@@ -31,6 +30,15 @@ $(()=>{
         fdb.collection('documents').doc(docId).get()
         .then((doc)=>{
             $('#text1').text(doc.data().text.replace(/@RETURN@/g, '\r\n')).change();
+            const timestamp = doc.data().insert_timestamp;
+            let clickCount = 0;
+            $('#text1')
+            .on('click', function(){
+                clickCount += 1;
+                if (clickCount >= 5) {
+                    $('#timestamp').text(`🔔${timestamp}`);
+                }
+            });
         })
         .catch((error)=>{
             console.log(error);
