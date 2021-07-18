@@ -10,20 +10,14 @@ const firebaseConfig = {
 
 $(()=>{
     
-    console.log(location.href);
-    console.log(location.protocol);
-    console.log(location.host);
-    console.log(location.hostname);
-    console.log(location.port);
     console.log(location.pathname);
-    console.log(location.search);
-    console.log(location.hash);
-    console.log(location.origin);
 
     firebase.initializeApp(firebaseConfig);
     const fdb = firebase.firestore();
 
-    fdb.collection('documents').doc('banana').get()
+    const docId = (location.pathname + '///').split('/')[2];
+
+    fdb.collection('documents').doc(docId).get()
     .then((doc)=>{
         $('#app').text(doc.data().text);
     })
